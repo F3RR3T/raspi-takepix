@@ -1,0 +1,12 @@
+[Unit]
+Description=Take a photo and store it ready for uplift to STAN
+
+[Service]
+Type=oneshot
+User=st33v
+# need double quotes to evaluate contents of variable
+# Environment="picdate=date +%Y-%m-%d_%H%M"
+WorkingDirectory=/home/st33v/pix/
+# ExecStart=/bin/echo 
+# ExecStart=/opt/vc/bin/raspistill -o /home/st33v/pix/$(eval "echo $(picdate)").jpg
+ExecStart=/usr/local/bin/takepix.sh
