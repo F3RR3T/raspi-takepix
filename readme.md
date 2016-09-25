@@ -11,7 +11,7 @@ The script runs on a *raspberry pi* with an attached camera module.
 
 The Operating System that I use for raspberry pi is [Linux Arch ARM edition](https://archlinuxarm.org).
 
-To take the photos from the camera-equipped raspi, I use another raspi on the same LAN, which is running another service-based script, [getpix](../f3rr3t/raspi-getpix).
+To take the photos from the camera-equipped raspi, I use another raspi on the same LAN, which is running another service-based script, [raspi-getpix](https://github.com/F3RR3T/raspi-getpix).
 
 ## Files
 
