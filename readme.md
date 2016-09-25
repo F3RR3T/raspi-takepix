@@ -11,7 +11,7 @@ The script runs on a *raspberry pi* with an attached camera module.
 
 The Operating System that I use for raspberry pi is [Linux Arch ARM edition](https://archlinuxarm.org).
 
-To take the photos from the camera-equipped raspi, I use another raspi on the same LAN, which is running another service-based script, [getpix](/f3rr3t/getpix).:
+To take the photos from the camera-equipped raspi, I use another raspi on the same LAN, which is running another service-based script, [getpix](../f3rr3t/getpix).
 
 ## Files
 
@@ -19,4 +19,17 @@ File name | Purpose / functions
 ----------|--------------------
 takepix.timer|A simple timer that calls takepix.service periodically
 takepix.service| Systemd service definition that is called by the Timer 
-rakepix.sh|A shell script that takes trhe photo and performs quality checks
+takepix.sh|A shell script that takes trhe photo and performs quality checks
+
+The `timer` calls the `service` every 30 minutes, and the service then runs the `shell` script.
+
+I have found it difficult to make system services do anything more fancy than just call a script. 
+
+If you clone this script, you will have to edit the `picdir` variable in the shell script. Note that when you run scripts from a systemd service call, you must provide absolute paths to files or directories.
+
+Also update the `artist` variable that is palced into the EXIF metadata of the photo.
+
+### todo
+
+- expand the raspi photo interface to allow for customisation of camera settings.
+
