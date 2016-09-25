@@ -1,12 +1,16 @@
 #!/bin/bash
 
-picdir="/home/st33v/pix"
+# define variables. Your needs may vary.
+# use literal user name. Shell expansions may not work when this script is run by a service!Y
+picdir="/home/st33v/pix"   
 picdate=$(date +%Y-%m-%d_%H%M)
 thispic=$picdir/$picdate.jpg
+artist=$(hostname)
+
 
 #echo thispic = $thispic
 
-/opt/vc/bin/raspistill -x IFD1.Artist=neatherd -q 70 -md 4: -o $thispic
+/opt/vc/bin/raspistill -x IFD1.Artist=${artist} -q 70 -md 4: -o $thispic
 
 # silly portrait shape
 #/opt/vc/bin/raspistill -x IFD1.Artist=neatherd -w 1200 -o $thispic
