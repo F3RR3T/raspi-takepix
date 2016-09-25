@@ -6,7 +6,7 @@ thispic=$picdir/$picdate.jpg
 
 #echo thispic = $thispic
 
-/opt/vc/bin/raspistill -x IFD1.Artist=neatherd -q 70 -md 5 -o $thispic
+/opt/vc/bin/raspistill -x IFD1.Artist=neatherd -q 70 -md 4: -o $thispic
 
 # silly portrait shape
 #/opt/vc/bin/raspistill -x IFD1.Artist=neatherd -w 1200 -o $thispic
