@@ -1,1 +1,2 @@
+# Don't track image files, which are created by the takepix script.
 *.jpg

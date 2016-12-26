@@ -27,7 +27,7 @@ I have found it difficult to make `systemd` services do anything more fancy than
 
 If you clone this script, you will have to edit the `picdir` variable in the shell script. Note that when you run scripts from a systemd service call, you must provide absolute paths to files or directories.
 
-Also update the `artist` variable that is palced into the EXIF metadata of the photo.
+Also update the `artist` variable that is placed into the EXIF metadata of the photo.
 
 ### todo
 
