@@ -20,13 +20,16 @@ camHerderHostname='stan'    # Substitute your cam 'controller' hostname or LAN I
 case ${artist^^} in
 
     LUCERNE)
-    /opt/vc/bin/raspistill -vf -hf -x IFD1.Artist=${artist} -q $jpgQuality -md 4: -o $thispic;;
+    /opt/vc/bin/raspistill -vf -hf -x IFD1.Artist=${artist} -q $jpgQuality -md 4: -o $thispic
+    ;;
 
     NEATHERD)
-    /opt/vc/bin/raspistill -x IFD1.Artist=${artist} -q $jpgQuality -md 4: -o $thispic;;
+    /opt/vc/bin/raspistill -x IFD1.Artist=${artist} -q $jpgQuality -md 4: -o $thispic
+    ;;
 
     *)
-    /opt/vc/bin/raspistill -x IFD1.Artist=${artist} -q $jpgQuality -md 4: -o $thispic;;
+    /opt/vc/bin/raspistill -x IFD1.Artist=${artist} -q $jpgQuality -md 4: -o $thispic
+    ;;
 
 esac
 
