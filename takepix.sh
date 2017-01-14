@@ -8,7 +8,11 @@
 #   use literal user name. Shell expansions may not work when this script is run by a service!
 picdir="/path/to/my/photos"  # overwritten by sourcing from .picdir.config
 camherder="STAN:/home/path/to/stored/photos"
-. picdir.config             # source directory name from local config file
+if [ -e picdir.config ]; then
+    . picdir.config             # source directory name from local config file
+else echo "picdir.config does not exist"; exit 1
+fi
+#echo camherder = $camherder
 picdate=$(date +%Y-%m-%d_%H%M)
 thispic=$picdir/$picdate.jpg
 artist=$(hostname); artist=${artist,,}  # force to lower case
@@ -35,6 +39,8 @@ esac
 # Copy pic to STAN, and place it in proper subdirectory (which of course must exist on STAN).
 artist=${artist,,}  # force to lower case
 scp $thispic $camherder/$artist/.
+touch bump.txt      # this will trigger the systemd PATH unit at the other end
+scp bump.txt $camherder/.
 rm $thispic
 
 # Note: we do no image processing on this pi, because it has so little RAM
