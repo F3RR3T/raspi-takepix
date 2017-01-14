@@ -7,15 +7,14 @@
 # the following variable assignments, which are shown as examples:
 #   use literal user name. Shell expansions may not work when this script is run by a service!
 picdir="/path/to/my/photos"  # overwritten by sourcing from .picdir.config
-camHerder="STAN:/home/path/to/stored/photos"
+camherder="STAN:/home/path/to/stored/photos"
 . picdir.config             # source directory name from local config file
 picdate=$(date +%Y-%m-%d_%H%M)
 thispic=$picdir/$picdate.jpg
-artist=$(hostname)
+artist=$(hostname); artist=${artist,,}  # force to lower case
 jpgQuality="90"
-camHerderHostname='stan'    # Substitute your cam 'controller' hostname or LAN IP address
 
-# echo thispic = $thispic
+ # echo thispic = $thispic
 
 case ${artist^^} in
 
@@ -34,7 +33,8 @@ case ${artist^^} in
 esac
 
 # Copy pic to STAN, and place it in proper subdirectory (which of course must exist on STAN).
-scp $thispic $camHerder/$artist/.
+artist=${artist,,}  # force to lower case
+scp $thispic $camherder/$artist/.
 rm $thispic
 
 # Note: we do no image processing on this pi, because it has so little RAM
