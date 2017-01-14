@@ -1,4 +1,8 @@
 # Don't track image files, which are created by the takepix script.
 *.jpg
 *.config
+<<<<<<< HEAD
 bump*
+=======
+bump.txt
+>>>>>>> 56e2fcd409e6e6f2375f591ec2c8ba866dd355bc
