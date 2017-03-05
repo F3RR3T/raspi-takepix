@@ -15,7 +15,7 @@ fi
 #echo camherder = $camherder
 picdate=$(date +%Y-%m-%d_%H%M)
 thispic=$picdir/$picdate.jpg
-artist=$(hostname); artist=${artist,,}  # force to lower case
+artist=$(hostname)
 jpgQuality="90"
 
  # echo thispic = $thispic
@@ -39,8 +39,8 @@ esac
 # Copy pic to STAN, and place it in proper subdirectory (which of course must exist on STAN).
 artist=${artist,,}  # force to lower case
 scp $thispic $camherder/$artist/.
-touch bump.$artist      # this will trigger the systemd PATH unit at the other end
-scp bump.$artist $camherder/.
+touch bump-$artist      # this will trigger the systemd PATH unit at the other end
+scp bump-$artist $camherder/.
 rm $thispic
 
 # Note: we do no image processing on this pi, because it has so little RAM
